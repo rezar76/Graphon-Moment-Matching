@@ -102,3 +102,19 @@ If you use MomentNet, MomentMixup, or this code in your research, please cite ou
   journal={arXiv preprint arXiv:2506.04206},
   year={2025}
 }
+```
+
+For graphon-mixture learning, where the data generator is a mixture of new
+graphons, please also see our new work:
+
+```bibtex
+@misc{azizpour2026momentsmodelsgraphonmixturelearning,
+  title={From Moments to Models: Graphon-Mixture Learning for Mixup and Contrastive Learning},
+  author={Ali Azizpour and Reza Ramezanpour and Santiago Segarra},
+  year={2026},
+  eprint={2510.03690},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2510.03690},
+}
+```
