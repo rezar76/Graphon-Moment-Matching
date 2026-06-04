@@ -21,10 +21,9 @@ counting, so clone and build it locally before running the experiments:
 
 ```bash
 git clone https://github.com/thocevar/orca.git orca
-make -C orca
 ```
 
-The executable should be available at `orca/orca`. If you already have ORCA
+Build ORCA using a compiler suitable for your operating system. The executable should be available at `orca/orca`. If you already have ORCA
 installed elsewhere, place or symlink the executable there.
 
 ## Recreate the Datasets
