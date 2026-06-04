@@ -104,8 +104,7 @@ If you use MomentNet, MomentMixup, or this code in your research, please cite ou
 }
 ```
 
-For graphon-mixture learning, where the data generator is a mixture of new
-graphons, please also see our new work:
+For graphon-mixture learning, where the data generator is a mixture of Graphons, please also see our new work:
 
 ```bibtex
 @misc{azizpour2026momentsmodelsgraphonmixturelearning,
