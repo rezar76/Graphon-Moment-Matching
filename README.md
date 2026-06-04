@@ -8,6 +8,79 @@ We also introduce **MomentMixup**, a data augmentation technique that operates b
 
 <img width="948" height="376" alt="Method Diagram" src="https://github.com/user-attachments/assets/1925a8fb-379d-41c9-9970-65bb06c1713c" />
 
+## Installation
+
+```bash
+conda create -n momentnet python=3.12
+conda activate momentnet
+pip install -r requirements.txt
+```
+
+This repository does not vendor ORCA. MomentNet uses ORCA for graphlet/motif
+counting, so clone and build it locally before running the experiments:
+
+```bash
+git clone https://github.com/thocevar/orca.git orca
+make -C orca
+```
+
+The executable should be available at `orca/orca`. If you already have ORCA
+installed elsewhere, place or symlink the executable there.
+
+## Recreate the Datasets
+
+Datasets are not stored in this repository. Recreate the synthetic graphon
+benchmark files with:
+
+```bash
+python DatasetGen.py --dataset-id 1
+```
+
+This writes `dataset/graphon_0.pkl` through `dataset/graphon_12.pkl`.
+
+The scalability datasets from the paper can be regenerated with:
+
+```bash
+python DatasetGen.py --dataset-id 2
+python DatasetGen.py --dataset-id 3
+```
+
+## Reproduce Graphon Experiments
+
+```bash
+python experiments/run.py --graphons all --overwrite
+```
+
+This runs the MomentNet graphon benchmarks, records GW distance and runtime,
+resumes partial results, and keeps centrality metrics disabled by default.
+Graphon 9 always uses the parallel path. Other graphons run sequentially by
+default, and can be parallelized by trial with `--parallel`. Results are
+written to `results/`. To run a subset:
+
+```bash
+python experiments/run.py --graphons 0,1,9,11,12 --overwrite
+```
+
+To parallelize every requested graphon:
+
+```bash
+python experiments/run.py --graphons all --parallel --gpus 0,1,3 --overwrite
+```
+
+For long runs:
+
+```bash
+bash experiments/run_background.sh momentnet_all \
+  experiments/run.py --graphons all --overwrite
+```
+
+Centrality metrics are disabled by default because they are slower than GW
+evaluation. Enable them explicitly with:
+
+```bash
+python experiments/run.py --centrality
+```
+
 
 ## Acknowledgments
 
@@ -29,4 +102,3 @@ If you use MomentNet, MomentMixup, or this code in your research, please cite ou
   journal={arXiv preprint arXiv:2506.04206},
   year={2025}
 }
-

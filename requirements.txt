@@ -1,0 +1,10 @@
+einops>=0.8
+matplotlib>=3.8
+networkx>=2.8
+numpy>=2.0
+pandas>=2.2
+POT>=0.9
+schedulefree>=1.4
+scipy>=1.13
+torch>=2.4
+tqdm>=4.66
